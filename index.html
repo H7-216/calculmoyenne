@@ -8,98 +8,75 @@
     <script defer src="scripts.js"></script>
 </head>
 <body>
+    <!-- En-tête -->
     <header>
-        <h1>Site de Streaming</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Accueil</a></li>
-                <li><a href="#categories">Catégories</a></li>
-                <li><a href="#results">Films & Séries</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <h1 class="logo">Mon Streaming</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#categories">Catégories</a></li>
+                    <li><a href="#results">Films & Séries</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
+    <!-- Section principale -->
     <main>
-        <!-- Section Accueil -->
-        <section id="home">
-            <h2>Bienvenue</h2>
-            <p>Regardez vos films, séries et animés préférés.</p>
-        </section>
-
-        <!-- Section Catégories -->
-        <section id="categories">
-            <h2>Catégories</h2>
-            <ul>
-                <li><a href="#" onclick="loadCategory('films-crime')">Crime</a></li>
-                <li><a href="#" onclick="loadCategory('films-familial')">Familial</a></li>
-                <li><a href="#" onclick="loadCategory('films-guerre')">Guerre</a></li>
-                <li><a href="#" onclick="loadCategory('films-histoire')">Histoire</a></li>
-                <li><a href="#" onclick="loadCategory('films-musique')">Musique</a></li>
-            </ul>
-        </section>
-
-        <!-- Section Résultats -->
-        <section id="results">
-            <h2>Films & Séries</h2>
-            <div id="movies-list">
-                <!-- Les films et séries apparaîtront ici -->
+        <!-- Accueil -->
+        <section id="home" class="section">
+            <div class="container">
+                <h2>Bienvenue sur Mon Streaming</h2>
+                <p>Profitez des meilleurs films et séries en streaming gratuitement.</p>
+                <form id="search-form">
+                    <input type="text" id="search-input" placeholder="Rechercher un film ou une série...">
+                    <button type="submit">Rechercher</button>
+                </form>
             </div>
         </section>
 
-        <!-- Section Lecteur Vidéo -->
-        <section id="player">
-            <h2>Lecture</h2>
-            <video id="video-player" controls>
-                <source id="video-source" src="" type="video/mp4">
-                Votre navigateur ne supporte pas la lecture vidéo.
-            </video>
+        <!-- Catégories -->
+        <section id="categories" class="section">
+            <div class="container">
+                <h2>Catégories</h2>
+                <ul class="categories-list">
+                    <li><button onclick="loadCategory('films-crime')">Crime</button></li>
+                    <li><button onclick="loadCategory('films-familial')">Familial</button></li>
+                    <li><button onclick="loadCategory('films-histoire')">Histoire</button></li>
+                    <li><button onclick="loadCategory('films-guerre')">Guerre</button></li>
+                    <li><button onclick="loadCategory('films-musique')">Musique</button></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Résultats -->
+        <section id="results" class="section">
+            <div class="container">
+                <h2>Films & Séries</h2>
+                <div id="movies-list" class="movies-grid">
+                    <!-- Les films et séries apparaîtront ici -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Lecteur Vidéo -->
+        <section id="player" class="section">
+            <div class="container">
+                <h2>Lecteur Vidéo</h2>
+                <video id="video-player" controls>
+                    <source id="video-source" src="" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture vidéo.
+                </video>
+            </div>
         </section>
     </main>
 
+    <!-- Pied de page -->
     <footer>
-        <p>&copy; 2024 Site de Streaming. Tous droits réservés.</p>
+        <div class="container">
+            <p>&copy; 2024 Mon Streaming - Tous droits réservés.</p>
+        </div>
     </footer>
-
-    <script>
-        // Liste des films avec leurs liens identifiés
-        const movies = [
-            { title: "Film 1", url: "https://galtro.xyz/films/?b=1234811" },
-            { title: "Film 2", url: "https://galtro.xyz/films/?b=974576" },
-            { title: "Film 3", url: "https://galtro.xyz/films/?b=1241982" },
-            { title: "Film 4", url: "https://galtro.xyz/films/?b=402431" },
-        ];
-
-        // Charger les films dans la section Résultats
-        function loadMovies() {
-            const moviesList = document.getElementById("movies-list");
-            moviesList.innerHTML = "";
-            movies.forEach((movie) => {
-                const movieDiv = document.createElement("div");
-                movieDiv.className = "movie-item";
-                movieDiv.innerHTML = `
-                    <h3>${movie.title}</h3>
-                    <button onclick="playVideo('${movie.url}')">Regarder</button>
-                `;
-                moviesList.appendChild(movieDiv);
-            });
-        }
-
-        // Charger une catégorie (Simulé)
-        function loadCategory(category) {
-            alert(`Chargement de la catégorie : ${category}`);
-        }
-
-        // Fonction pour lire une vidéo
-        function playVideo(videoUrl) {
-            const videoPlayer = document.getElementById("video-player");
-            const videoSource = document.getElementById("video-source");
-            videoSource.src = videoUrl;
-            videoPlayer.load();
-            videoPlayer.play();
-        }
-
-        // Charger les films au démarrage
-        document.addEventListener("DOMContentLoaded", loadMovies);
-    </script>
 </body>
 </html>
