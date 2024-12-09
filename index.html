@@ -3,80 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Streaming Films & Séries</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="scripts.js"></script>
+    <title>Calcul de Moyenne - BUT GEII</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            line-height: 1.6;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .result {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <!-- En-tête -->
-    <header>
-        <div class="container">
-            <h1 class="logo">Mon Streaming</h1>
-            <nav>
-                <ul>
-                    <li><a href="#home">Accueil</a></li>
-                    <li><a href="#categories">Catégories</a></li>
-                    <li><a href="#results">Films & Séries</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <h1>Calcul de Moyenne - BUT GEII</h1>
+    <p>Entrez vos notes pour chaque matière afin de calculer votre moyenne générale :</p>
 
-    <!-- Section principale -->
-    <main>
-        <!-- Accueil -->
-        <section id="home" class="section">
-            <div class="container">
-                <h2>Bienvenue sur Mon Streaming</h2>
-                <p>Profitez des meilleurs films et séries en streaming gratuitement.</p>
-                <form id="search-form">
-                    <input type="text" id="search-input" placeholder="Rechercher un film ou une série...">
-                    <button type="submit">Rechercher</button>
-                </form>
-            </div>
-        </section>
+    <table id="moyenneTable">
+        <thead>
+            <tr>
+                <th>Matière</th>
+                <th>Coefficient</th>
+                <th>Note</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Saé Robot et portfolio</td>
+                <td>240</td>
+                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
+            </tr>
+            <tr>
+                <td>Saé Sécu et portfolio</td>
+                <td>160</td>
+                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
+            </tr>
+            <tr>
+                <td>Energie</td>
+                <td>84</td>
+                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
+            </tr>
+            <tr>
+                <td>Automatisme</td>
+                <td>84</td>
+                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
+            </tr>
+            <tr>
+                <td>Informatique</td>
+                <td>84</td>
+                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
+            </tr>
+            <tr>
+                <td>Electronique</td>
+                <td>84</td>
+                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
+            </tr>
+            <tr>
+                <td>Projet personnel et professionnel</td>
+                <td>16</td>
+                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
+            </tr>
+            <tr>
+                <td>Intégration à l'université</td>
+                <td>12</td>
+                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
+            </tr>
+            <tr>
+                <td>Vie de l'entreprise</td>
+                <td>12</td>
+                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
+            </tr>
+            <tr>
+                <td>Anglais</td>
+                <td>44</td>
+                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
+            </tr>
+            <tr>
+                <td>Outils Mathématiques et Logiciels</td>
+                <td>84</td>
+                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
+            </tr>
+            <tr>
+                <td>Culture et communication</td>
+                <td>44</td>
+                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
+            </tr>
+            <tr>
+                <td>Physique appliquée</td>
+                <td>52</td>
+                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
+            </tr>
+        </tbody>
+    </table>
 
-        <!-- Catégories -->
-        <section id="categories" class="section">
-            <div class="container">
-                <h2>Catégories</h2>
-                <ul class="categories-list">
-                    <li><button onclick="loadCategory('films-crime')">Crime</button></li>
-                    <li><button onclick="loadCategory('films-familial')">Familial</button></li>
-                    <li><button onclick="loadCategory('films-histoire')">Histoire</button></li>
-                    <li><button onclick="loadCategory('films-guerre')">Guerre</button></li>
-                    <li><button onclick="loadCategory('films-musique')">Musique</button></li>
-                </ul>
-            </div>
-        </section>
+    <button onclick="calculerMoyenne()">Calculer la Moyenne</button>
+    <p class="result">Moyenne Générale : <span id="moyenneGenerale">0.00</span></p>
 
-        <!-- Résultats -->
-        <section id="results" class="section">
-            <div class="container">
-                <h2>Films & Séries</h2>
-                <div id="movies-list" class="movies-grid">
-                    <!-- Les films et séries apparaîtront ici -->
-                </div>
-            </div>
-        </section>
+    <script>
+        function calculerMoyenne() {
+            const notes = document.querySelectorAll('.note');
+            const coefficients = [240, 160, 84, 84, 84, 84, 16, 12, 12, 44, 84, 44, 52];
 
-        <!-- Lecteur Vidéo -->
-        <section id="player" class="section">
-            <div class="container">
-                <h2>Lecteur Vidéo</h2>
-                <video id="video-player" controls>
-                    <source id="video-source" src="" type="video/mp4">
-                    Votre navigateur ne supporte pas la lecture vidéo.
-                </video>
-            </div>
-        </section>
-    </main>
+            let totalCoef = 0;
+            let sommePonderee = 0;
 
-    <!-- Pied de page -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Mon Streaming - Tous droits réservés.</p>
-        </div>
-    </footer>
+            notes.forEach((note, index) => {
+                const valeurNote = parseFloat(note.value);
+                if (!isNaN(valeurNote)) {
+                    sommePonderee += valeurNote * coefficients[index];
+                    totalCoef += coefficients[index];
+                }
+            });
+
+            const moyenneGenerale = totalCoef > 0 ? (sommePonderee / totalCoef).toFixed(4) : 0;
+            document.getElementById('moyenneGenerale').textContent = moyenneGenerale;
+        }
+    </script>
 </body>
 </html>
