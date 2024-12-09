@@ -72,86 +72,43 @@
     </header>
 
     <h1>Calcul de Moyenne - BUT GEII</h1>
-    <p>Entrez vos notes pour chaque matière afin de calculer votre moyenne générale :</p>
+    <p>Entrez vos notes pour chaque épreuve afin de calculer la moyenne pour chaque matière et votre moyenne générale :</p>
 
     <table id="moyenneTable">
         <thead>
             <tr>
                 <th>Matière</th>
-                <th>Coefficient</th>
-                <th>Note</th>
+                <th>Nature des épreuves & Coef</th>
+                <th>Notes</th>
+                <th>Moyenne Matière</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>Saé Robot et portfolio</td>
-                <td>240</td>
-                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
+                <td>DS (60), Groupe (80), Individuelle (100)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DS" class="note" data-coef="60"> 
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Groupe" class="note" data-coef="80">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Individuelle" class="note" data-coef="100">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
             </tr>
             <tr>
                 <td>Saé Sécu et portfolio</td>
-                <td>160</td>
-                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
+                <td>DS (48), TP (64), Projet (48)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DS" class="note" data-coef="48">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="TP" class="note" data-coef="64">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Projet" class="note" data-coef="48">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
             </tr>
-            <tr>
-                <td>Energie</td>
-                <td>84</td>
-                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
-            </tr>
-            <tr>
-                <td>Automatisme</td>
-                <td>84</td>
-                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
-            </tr>
-            <tr>
-                <td>Informatique</td>
-                <td>84</td>
-                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
-            </tr>
-            <tr>
-                <td>Electronique</td>
-                <td>84</td>
-                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
-            </tr>
-            <tr>
-                <td>Projet personnel et professionnel</td>
-                <td>16</td>
-                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
-            </tr>
-            <tr>
-                <td>Intégration à l'université</td>
-                <td>12</td>
-                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
-            </tr>
-            <tr>
-                <td>Vie de l'entreprise</td>
-                <td>12</td>
-                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
-            </tr>
-            <tr>
-                <td>Anglais</td>
-                <td>44</td>
-                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
-            </tr>
-            <tr>
-                <td>Outils Mathématiques et Logiciels</td>
-                <td>84</td>
-                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
-            </tr>
-            <tr>
-                <td>Culture et communication</td>
-                <td>44</td>
-                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
-            </tr>
-            <tr>
-                <td>Physique appliquée</td>
-                <td>52</td>
-                <td><input type="number" min="0" max="20" step="0.01" class="note"></td>
-            </tr>
+            <!-- Ajout des autres matières selon le même format -->
         </tbody>
     </table>
 
-    <button onclick="calculerMoyenne()">Calculer la Moyenne</button>
+    <button onclick="calculerMoyennes()">Calculer la Moyenne Générale</button>
     <p class="result">Moyenne Générale : <span id="moyenneGenerale">0.00</span></p>
 
     <footer>
@@ -171,22 +128,33 @@
 
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script>
-        function calculerMoyenne() {
-            const notes = document.querySelectorAll('.note');
-            const coefficients = [240, 160, 84, 84, 84, 84, 16, 12, 12, 44, 84, 44, 52];
+        function calculerMoyennes() {
+            const lignes = document.querySelectorAll('#moyenneTable tbody tr');
+            let totalGeneral = 0;
+            let totalCoefGeneral = 0;
 
-            let totalCoef = 0;
-            let sommePonderee = 0;
+            lignes.forEach(ligne => {
+                const notes = ligne.querySelectorAll('.note');
+                let sommePonderee = 0;
+                let totalCoef = 0;
 
-            notes.forEach((note, index) => {
-                const valeurNote = parseFloat(note.value);
-                if (!isNaN(valeurNote)) {
-                    sommePonderee += valeurNote * coefficients[index];
-                    totalCoef += coefficients[index];
-                }
+                notes.forEach(note => {
+                    const valeurNote = parseFloat(note.value);
+                    const coef = parseFloat(note.dataset.coef);
+                    if (!isNaN(valeurNote)) {
+                        sommePonderee += valeurNote * coef;
+                        totalCoef += coef;
+                    }
+                });
+
+                const moyenneMatiere = totalCoef > 0 ? (sommePonderee / totalCoef).toFixed(2) : 0.00;
+                ligne.querySelector('.moyenne-matiere').textContent = moyenneMatiere;
+
+                totalGeneral += sommePonderee;
+                totalCoefGeneral += totalCoef;
             });
 
-            const moyenneGenerale = totalCoef > 0 ? (sommePonderee / totalCoef).toFixed(4) : 0;
+            const moyenneGenerale = totalCoefGeneral > 0 ? (totalGeneral / totalCoefGeneral).toFixed(2) : 0.00;
             document.getElementById('moyenneGenerale').textContent = moyenneGenerale;
         }
     </script>
