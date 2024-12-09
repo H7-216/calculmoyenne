@@ -45,17 +45,21 @@
         footer .social-icons {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             margin-bottom: 10px;
         }
-        footer .social-icons .icon {
-            font-size: 30px;
-            color: #333;
-            transition: transform 0.3s, color 0.3s;
+        footer .social-icons a {
+            text-decoration: none;
+            color: inherit;
         }
-        footer .social-icons .icon:hover {
-            transform: translateY(-5px) scale(1.2);
-            color: #ff4500;
+        footer .social-icons img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        footer .social-icons img:hover {
+            transform: scale(1.2);
+            opacity: 0.8;
         }
         footer .rights {
             border: 1px solid black;
@@ -127,12 +131,79 @@
                 <td><span class="moyenne-matiere">0.00</span></td>
             </tr>
             <tr>
-                <td>Physique appliquée</td>
-                <td>DS1 (22), DS2 (22), Séance (8)</td>
+                <td>Informatique</td>
+                <td>DS1 (28), DS2 (28), Moodle (28)</td>
                 <td>
-                    <input type="number" min="0" max="20" step="0.01" placeholder="DS1" class="note" data-coef="22">
-                    <input type="number" min="0" max="20" step="0.01" placeholder="DS2" class="note" data-coef="22">
-                    <input type="number" min="0" max="20" step="0.01" placeholder="Séance" class="note" data-coef="8">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DS1" class="note" data-coef="28">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DS2" class="note" data-coef="28">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Moodle" class="note" data-coef="28">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+            <tr>
+                <td>Électronique</td>
+                <td>DS1 (28), DS2 (28), TP (28)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DS1" class="note" data-coef="28">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DS2" class="note" data-coef="28">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="TP" class="note" data-coef="28">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+            <tr>
+                <td>Projet personnel et professionnel</td>
+                <td>Séance (16)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Séance" class="note" data-coef="16">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+            <tr>
+                <td>Intégration à l'université</td>
+                <td>DS IU (8), PAPP (4)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DS IU" class="note" data-coef="8">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="PAPP" class="note" data-coef="4">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+            <tr>
+                <td>Vie de l'entreprise</td>
+                <td>Rapport technique/Revue de conception (12)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Rapport" class="note" data-coef="12">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+            <tr>
+                <td>Anglais</td>
+                <td>Implication (9), Voc/Gr (9), Oral (9), DS (17)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Implication" class="note" data-coef="9">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Voc/Gr" class="note" data-coef="9">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Oral" class="note" data-coef="9">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DS" class="note" data-coef="17">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+            <tr>
+                <td>Outils Mathématiques et Logiciels</td>
+                <td>DS1 (21), DS2 (21), DS3 (21), Séance (21)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DS1" class="note" data-coef="21">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DS2" class="note" data-coef="21">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DS3" class="note" data-coef="21">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Séance" class="note" data-coef="21">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+            <tr>
+                <td>Culture et communication</td>
+                <td>Oral (17), Note de séance (10), Écrit (17)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Oral" class="note" data-coef="17">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Note de séance" class="note" data-coef="10">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Écrit" class="note" data-coef="17">
                 </td>
                 <td><span class="moyenne-matiere">0.00</span></td>
             </tr>
@@ -144,20 +215,19 @@
 
     <footer>
         <div class="social-icons">
-            <a href="https://www.instagram.com/h7_06200/profilecard/?igsh=em5iOG5yNXB0Y3Uw" target="_blank" class="icon instagram">
-                <i class="fab fa-instagram"></i>
+            <a href="https://www.instagram.com/h7_06200/profilecard/?igsh=em5iOG5yNXB0Y3Uw" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
             </a>
-            <a href="https://snapchat.com/t/NHDSHXFF" target="_blank" class="icon snapchat">
-                <i class="fab fa-snapchat-ghost"></i>
+            <a href="https://snapchat.com/t/NHDSHXFF" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/ad/Snapchat_logo.svg" alt="Snapchat">
             </a>
-            <a href="https://www.tiktok.com/@hamza.06200?_t=8s5C2JNgFm5&_r=1" target="_blank" class="icon tiktok">
-                <i class="fab fa-tiktok"></i>
+            <a href="https://www.tiktok.com/@hamza.06200?_t=8s5C2JNgFm5&_r=1" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/en/0/0a/TikTok_logo.svg" alt="TikTok">
             </a>
         </div>
         <div class="rights">Droits réservés 2024 - Créé par H7</div>
     </footer>
 
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script>
         function calculerMoyennes() {
             const lignes = document.querySelectorAll('#moyenneTable tbody tr');
