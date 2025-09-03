@@ -79,138 +79,170 @@
     <p>Entrez vos notes pour chaque épreuve afin de calculer la moyenne pour chaque matière et votre moyenne générale :</p>
 
     <table id="moyenneTable">
-    <thead>
-        <tr>
-            <th>Matière</th>
-            <th>Nature des épreuves & Coef</th>
-            <th>Notes</th>
-            <th>Moyenne Matière</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Saé Robot</td>
-            <td>DS (57), Groupe (57), Individuelle (78)</td>
-            <td>
-                <input type="number" min="0" max="20" step="0.01" placeholder="DS" class="note" data-coef="57"> 
-                <input type="number" min="0" max="20" step="0.01" placeholder="Groupe" class="note" data-coef="57">
-                <input type="number" min="0" max="20" step="0.01" placeholder="Individuelle" class="note" data-coef="78">
-            </td>
-            <td><span class="moyenne-matiere">0.00</span></td>
-        </tr>
-        <tr>
-            <td>Saé Flipper</td>
-            <td>DS (47), Séance (57), Réalisation (88)</td>
-            <td>
-                <input type="number" min="0" max="20" step="0.01" placeholder="DS" class="note" data-coef="47">
-                <input type="number" min="0" max="20" step="0.01" placeholder="Séance" class="note" data-coef="57">
-                <input type="number" min="0" max="20" step="0.01" placeholder="Réalisation" class="note" data-coef="88">
-            </td>
-            <td><span class="moyenne-matiere">0.00</span></td>
-        </tr>
-        <tr>
-            <td>Énergie</td>
-            <td>DS1 (22), DS2 (22), TP (18), WIMS (11), Quiz (11)</td>
-            <td>
-                <input type="number" min="0" max="20" step="0.01" placeholder="DS1" class="note" data-coef="22">
-                <input type="number" min="0" max="20" step="0.01" placeholder="DS2" class="note" data-coef="22">
-                <input type="number" min="0" max="20" step="0.01" placeholder="TP" class="note" data-coef="18">
-                <input type="number" min="0" max="20" step="0.01" placeholder="WIMS" class="note" data-coef="11">
-                <input type="number" min="0" max="20" step="0.01" placeholder="Quiz" class="note" data-coef="11">
-            </td>
-            <td><span class="moyenne-matiere">0.00</span></td>
-        </tr>
-        <tr>
-            <td>Automatisme</td>
-            <td>DS1 (28), DS2 (28), TP (18), Quiz (10)</td>
-            <td>
-                <input type="number" min="0" max="20" step="0.01" placeholder="DS1" class="note" data-coef="28">
-                <input type="number" min="0" max="20" step="0.01" placeholder="DS2" class="note" data-coef="28">
-                <input type="number" min="0" max="20" step="0.01" placeholder="TP" class="note" data-coef="18">
-                <input type="number" min="0" max="20" step="0.01" placeholder="Quiz" class="note" data-coef="10">
-            </td>
-            <td><span class="moyenne-matiere">0.00</span></td>
-        </tr>
-        <tr>
-            <td>Informatique</td>
-            <td>DS1 (20), DS2 (20), TP/Tests (44)</td>
-            <td>
-                <input type="number" min="0" max="20" step="0.01" placeholder="DS1" class="note" data-coef="20">
-                <input type="number" min="0" max="20" step="0.01" placeholder="DS2" class="note" data-coef="20">
-                <input type="number" min="0" max="20" step="0.01" placeholder="TP/Tests" class="note" data-coef="44">
-            </td>
-            <td><span class="moyenne-matiere">0.00</span></td>
-        </tr>
-        <tr>
-            <td>Électronique</td>
-            <td>DS1 (24), DS2 (24), TP (24), Séance et Wims (12)</td>
-            <td>
-                <input type="number" min="0" max="20" step="0.01" placeholder="DS1" class="note" data-coef="24">
-                <input type="number" min="0" max="20" step="0.01" placeholder="DS2" class="note" data-coef="24">
-                <input type="number" min="0" max="20" step="0.01" placeholder="TP" class="note" data-coef="24">
-                <input type="number" min="0" max="20" step="0.01" placeholder="Séance et Wims" class="note" data-coef="12">
-            </td>
-            <td><span class="moyenne-matiere">0.00</span></td>
-        </tr>
-        <tr>
-            <td>Projet personnel et professionnel</td>
-            <td>Séance (16)</td>
-            <td>
-                <input type="number" min="0" max="20" step="0.01" placeholder="Séance" class="note" data-coef="16">
-            </td>
-            <td><span class="moyenne-matiere">0.00</span></td>
-        </tr>
-        <tr>
-            <td>Vie de l'entreprise</td>
-            <td>Séance (16)</td>
-            <td>
-                <input type="number" min="0" max="20" step="0.01" placeholder="Séance" class="note" data-coef="16">
-            </td>
-            <td><span class="moyenne-matiere">0.00</span></td>
-        </tr>
-        <tr>
-            <td>Anglais</td>
-            <td>Implication (10), Voc-CO (10), Oral (10), DS (18)</td>
-            <td>
-                <input type="number" min="0" max="20" step="0.01" placeholder="Implication" class="note" data-coef="10">
-                <input type="number" min="0" max="20" step="0.01" placeholder="Voc-CO" class="note" data-coef="10">
-                <input type="number" min="0" max="20" step="0.01" placeholder="Oral" class="note" data-coef="10">
-                <input type="number" min="0" max="20" step="0.01" placeholder="DS" class="note" data-coef="18">
-            </td>
-            <td><span class="moyenne-matiere">0.00</span></td>
-        </tr>
-        <tr>
-            <td>Outils Mathématiques et Logiciels</td>
-            <td>DS1 (21), DS2 (21), DS3 (21), Séance (21)</td>
-            <td>
-                <input type="number" min="0" max="20" step="0.01" placeholder="DS1" class="note" data-coef="21">
-                <input type="number" min="0" max="20" step="0.01" placeholder="DS2" class="note" data-coef="21">
-                <input type="number" min="0" max="20" step="0.01" placeholder="DS3" class="note" data-coef="21">
-                <input type="number" min="0" max="20" step="0.01" placeholder="Séance" class="note" data-coef="21">
-            </td>
-            <td><span class="moyenne-matiere">0.00</span></td>
-        </tr>
-        <tr>
-            <td>Culture et communication</td>
-            <td>Vidéo (24), Débats (24)</td>
-            <td>
-                <input type="number" min="0" max="20" step="0.01" placeholder="Vidéo" class="note" data-coef="24">
-                <input type="number" min="0" max="20" step="0.01" placeholder="Débats" class="note" data-coef="24">
-            </td>
-            <td><span class="moyenne-matiere">0.00</span></td>
-        </tr>
-        <tr>
-            <td>Physique appliquée</td>
-            <td>DS1 (18), DS2 (18), TP-WIMS (16)</td>
-            <td>
-                <input type="number" min="0" max="20" step="0.01" placeholder="DS1" class="note" data-coef="18">
-                <input type="number" min="0" max="20" step="0.01" placeholder="DS2" class="note" data-coef="18">
-                <input type="number" min="0" max="20" step="0.01" placeholder="TP-WIMS" class="note" data-coef="16">
-            </td>
-            <td><span class="moyenne-matiere">0.00</span></td>
-        </tr>
-    </tbody>
-</table>
+        <thead>
+            <tr>
+                <th>Matière</th>
+                <th>Nature des épreuves & Coef</th>
+                <th>Notes</th>
+                <th>Moyenne Matière</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Saé LCR et portfolio</td>
+                <td>SSANCE (80) + RAPPORT (90) + PARTIEL TP (30)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="SSANCE" class="note" data-coef="80"> 
+                    <input type="number" min="0" max="20" step="0.01" placeholder="RAPPORT" class="note" data-coef="90">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="PARTIEL TP" class="note" data-coef="30">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+            <tr>
+                <td>Saé Four et portfolio</td>
+                <td>SSANCE (70) + EVALU(S) (65) + DS (65)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="SSANCE" class="note" data-coef="70">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="EVALU(S)" class="note" data-coef="65">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DS" class="note" data-coef="65">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+            <tr>
+                <td>Anglais</td>
+                <td>DG (18) + Implication (10) + CO (10) + Oral (10)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DG" class="note" data-coef="18">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Implication" class="note" data-coef="10">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="CO" class="note" data-coef="10">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Oral" class="note" data-coef="10">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+            <tr>
+                <td>Culture et communication</td>
+                <td>Note de séance (12) + SyntheseDS (18) + Oral (18)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Note de séance" class="note" data-coef="12">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="SyntheseDS" class="note" data-coef="18">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Oral" class="note" data-coef="18">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+            <tr>
+                <td>Vie de l'entreprise</td>
+                <td>Séance (16)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Séance" class="note" data-coef="16">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+            <tr>
+                <td>Outils Mathématiques et Logiciels</td>
+                <td>DG (30) + DSS (30) + Séance (20)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DG" class="note" data-coef="30">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DSS" class="note" data-coef="30">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Séance" class="note" data-coef="20">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+            <tr>
+                <td>Projet personnel et professionnel</td>
+                <td>CV sur Internet (8)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="CV sur Internet" class="note" data-coef="8">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+            <tr>
+                <td>Automatique</td>
+                <td>DG (24) + TP (24)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DG" class="note" data-coef="24">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="TP" class="note" data-coef="24">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+            <tr>
+                <td>Informations industrielles</td>
+                <td>DS (38) + Partiel TP (34)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DS" class="note" data-coef="38">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Partiel TP" class="note" data-coef="34">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+            <tr>
+                <td>Électronique (analogique)</td>
+                <td>DG (32) + TP (16)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DG" class="note" data-coef="32">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="TP" class="note" data-coef="16">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+            <tr>
+                <td>Énergie</td>
+                <td>DG (18) + DSS (18) + TP (18) + Quiz/WIMS (18)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DG" class="note" data-coef="18">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DSS" class="note" data-coef="18">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="TP" class="note" data-coef="18">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Quiz/WIMS" class="note" data-coef="18">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+            <tr>
+                <td>Physique appliquée</td>
+                <td>DG (23) + DSS (23) + Partiel TP (23) + Séance (9)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DG" class="note" data-coef="23">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DSS" class="note" data-coef="23">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Partiel TP" class="note" data-coef="23">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Séance" class="note" data-coef="9">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+            <tr>
+                <td>Maintenance</td>
+                <td>DG (16)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DG" class="note" data-coef="16">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+            <tr>
+                <td>Généralités sur les réseaux et la cybersécurité</td>
+                <td>DG (21) + Partiel TP (21) + Séance TP/TD (8)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DG" class="note" data-coef="21">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Partiel TP" class="note" data-coef="21">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Séance TP/TD" class="note" data-coef="8">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+            <tr>
+                <td>Supervision / Télégestion</td>
+                <td>DG (24) + TP (8)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DG" class="note" data-coef="24">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="TP" class="note" data-coef="8">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+            <tr>
+                <td>Électronique (numérique)</td>
+                <td>DG (21) + Partiel TP (21) + Séance TP/TD (8)</td>
+                <td>
+                    <input type="number" min="0" max="20" step="0.01" placeholder="DG" class="note" data-coef="21">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Partiel TP" class="note" data-coef="21">
+                    <input type="number" min="0" max="20" step="0.01" placeholder="Séance TP/TD" class="note" data-coef="8">
+                </td>
+                <td><span class="moyenne-matiere">0.00</span></td>
+            </tr>
+        </tbody>
+    </table>
 
     <button onclick="calculerMoyennes()">Calculer la Moyenne Générale</button>
     <p class="result">Moyenne Générale : <span id="moyenneGenerale">0.00</span></p>
